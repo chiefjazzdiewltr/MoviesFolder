@@ -34,6 +34,9 @@
             this.folderDirectory = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.buttonGo = new System.Windows.Forms.Button();
+            this.labelFileList = new System.Windows.Forms.Label();
+            this.checkBoxWatched = new System.Windows.Forms.CheckBox();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // appDesc
@@ -51,10 +54,11 @@
             this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxFiles.FormattingEnabled = true;
-            this.listBoxFiles.Location = new System.Drawing.Point(15, 152);
+            this.listBoxFiles.Location = new System.Drawing.Point(15, 99);
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(235, 251);
             this.listBoxFiles.TabIndex = 1;
+            this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
             // textBoxFolder
             // 
@@ -87,11 +91,43 @@
             this.buttonGo.UseVisualStyleBackColor = true;
             this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
+            // labelFileList
+            // 
+            this.labelFileList.AutoSize = true;
+            this.labelFileList.Location = new System.Drawing.Point(12, 83);
+            this.labelFileList.Name = "labelFileList";
+            this.labelFileList.Size = new System.Drawing.Size(42, 13);
+            this.labelFileList.TabIndex = 6;
+            this.labelFileList.Text = "File List";
+            // 
+            // checkBoxWatched
+            // 
+            this.checkBoxWatched.AutoSize = true;
+            this.checkBoxWatched.Location = new System.Drawing.Point(256, 99);
+            this.checkBoxWatched.Name = "checkBoxWatched";
+            this.checkBoxWatched.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxWatched.TabIndex = 8;
+            this.checkBoxWatched.Text = "Watched";
+            this.checkBoxWatched.UseVisualStyleBackColor = true;
+            this.checkBoxWatched.CheckedChanged += new System.EventHandler(this.checkBoxWatched_CheckedChanged);
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(256, 327);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(75, 23);
+            this.buttonExport.TabIndex = 9;
+            this.buttonExport.Text = "Export ";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 415);
+            this.ClientSize = new System.Drawing.Size(432, 362);
+            this.Controls.Add(this.buttonExport);
+            this.Controls.Add(this.checkBoxWatched);
+            this.Controls.Add(this.labelFileList);
             this.Controls.Add(this.buttonGo);
             this.Controls.Add(this.folderDirectory);
             this.Controls.Add(this.textBoxFolder);
@@ -113,6 +149,9 @@
         private System.Windows.Forms.Label folderDirectory;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.Label labelFileList;
+        private System.Windows.Forms.CheckBox checkBoxWatched;
+        private System.Windows.Forms.Button buttonExport;
     }
 }
 

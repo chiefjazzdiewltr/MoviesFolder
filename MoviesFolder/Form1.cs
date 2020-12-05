@@ -13,6 +13,8 @@ namespace MoviesFolder
 {
     public partial class Form1 : Form
     {
+        private Dictionary<string, bool> watched = new Dictionary<string, bool>();
+        private string currItem;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +34,16 @@ namespace MoviesFolder
             }
         }
 
+        private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e) {
+            string listItem = listBoxFiles.SelectedItem.ToString();
+            currItem = listItem;
+            if(watched.ContainsKey(currItem)) {
 
+            }
+        }
+
+        private void checkBoxWatched_CheckedChanged(object sender, EventArgs e) {
+            watched[currItem] = checkBoxWatched.Checked;
+        }
     }
 }
