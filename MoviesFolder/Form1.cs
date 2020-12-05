@@ -38,7 +38,11 @@ namespace MoviesFolder
             string listItem = listBoxFiles.SelectedItem.ToString();
             currItem = listItem;
             if(watched.ContainsKey(currItem)) {
-
+                checkBoxWatched.Checked = watched[currItem];
+            }
+            else {
+                watched.Add(currItem, false);
+                checkBoxWatched.Checked = false;
             }
         }
 
