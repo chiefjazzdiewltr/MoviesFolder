@@ -49,5 +49,15 @@ namespace MoviesFolder
         private void checkBoxWatched_CheckedChanged(object sender, EventArgs e) {
             watched[currItem] = checkBoxWatched.Checked;
         }
+
+        private void browseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

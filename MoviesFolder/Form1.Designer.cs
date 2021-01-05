@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.appDesc = new System.Windows.Forms.Label();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.textBoxFolder = new System.Windows.Forms.TextBox();
             this.folderDirectory = new System.Windows.Forms.Label();
@@ -37,17 +36,14 @@
             this.labelFileList = new System.Windows.Forms.Label();
             this.checkBoxWatched = new System.Windows.Forms.CheckBox();
             this.buttonExport = new System.Windows.Forms.Button();
+            this.menuStripBrowser = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.menuStripBrowser.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // appDesc
-            // 
-            this.appDesc.AutoSize = true;
-            this.appDesc.Location = new System.Drawing.Point(12, 9);
-            this.appDesc.Name = "appDesc";
-            this.appDesc.Size = new System.Drawing.Size(140, 13);
-            this.appDesc.TabIndex = 0;
-            this.appDesc.Text = "App for sorting movies folder";
-            this.appDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listBoxFiles
             // 
@@ -56,7 +52,7 @@
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(15, 99);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(235, 251);
+            this.listBoxFiles.Size = new System.Drawing.Size(235, 264);
             this.listBoxFiles.TabIndex = 1;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
@@ -120,11 +116,48 @@
             this.buttonExport.Text = "Export ";
             this.buttonExport.UseVisualStyleBackColor = true;
             // 
+            // menuStripBrowser
+            // 
+            this.menuStripBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStripBrowser.Location = new System.Drawing.Point(0, 0);
+            this.menuStripBrowser.Name = "menuStripBrowser";
+            this.menuStripBrowser.Size = new System.Drawing.Size(432, 24);
+            this.menuStripBrowser.TabIndex = 11;
+            this.menuStripBrowser.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.browseToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // browseToolStripMenuItem
+            // 
+            this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
+            this.browseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.browseToolStripMenuItem.Text = "Browse";
+            this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 362);
+            this.ClientSize = new System.Drawing.Size(432, 377);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.checkBoxWatched);
             this.Controls.Add(this.labelFileList);
@@ -132,18 +165,19 @@
             this.Controls.Add(this.folderDirectory);
             this.Controls.Add(this.textBoxFolder);
             this.Controls.Add(this.listBoxFiles);
-            this.Controls.Add(this.appDesc);
+            this.Controls.Add(this.menuStripBrowser);
+            this.MainMenuStrip = this.menuStripBrowser;
             this.Name = "Form1";
             this.Text = "Movies Folder";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStripBrowser.ResumeLayout(false);
+            this.menuStripBrowser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label appDesc;
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.TextBox textBoxFolder;
         private System.Windows.Forms.Label folderDirectory;
@@ -152,6 +186,12 @@
         private System.Windows.Forms.Label labelFileList;
         private System.Windows.Forms.CheckBox checkBoxWatched;
         private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.MenuStrip menuStripBrowser;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem browseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.SaveFileDialog saveFile;
     }
 }
 
