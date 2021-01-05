@@ -35,7 +35,6 @@
             this.buttonGo = new System.Windows.Forms.Button();
             this.labelFileList = new System.Windows.Forms.Label();
             this.checkBoxWatched = new System.Windows.Forms.CheckBox();
-            this.buttonExport = new System.Windows.Forms.Button();
             this.menuStripBrowser = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +51,7 @@
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(15, 99);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(235, 264);
+            this.listBoxFiles.Size = new System.Drawing.Size(329, 264);
             this.listBoxFiles.TabIndex = 1;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
@@ -99,22 +98,13 @@
             // checkBoxWatched
             // 
             this.checkBoxWatched.AutoSize = true;
-            this.checkBoxWatched.Location = new System.Drawing.Point(256, 99);
+            this.checkBoxWatched.Location = new System.Drawing.Point(350, 99);
             this.checkBoxWatched.Name = "checkBoxWatched";
             this.checkBoxWatched.Size = new System.Drawing.Size(70, 17);
             this.checkBoxWatched.TabIndex = 8;
             this.checkBoxWatched.Text = "Watched";
             this.checkBoxWatched.UseVisualStyleBackColor = true;
             this.checkBoxWatched.CheckedChanged += new System.EventHandler(this.checkBoxWatched_CheckedChanged);
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.Location = new System.Drawing.Point(256, 327);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(75, 23);
-            this.buttonExport.TabIndex = 9;
-            this.buttonExport.Text = "Export ";
-            this.buttonExport.UseVisualStyleBackColor = true;
             // 
             // menuStripBrowser
             // 
@@ -138,14 +128,14 @@
             // browseToolStripMenuItem
             // 
             this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
-            this.browseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.browseToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.browseToolStripMenuItem.Text = "Browse";
             this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -153,12 +143,15 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             // 
+            // saveFile
+            // 
+            this.saveFile.DefaultExt = "csv";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 377);
-            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.checkBoxWatched);
             this.Controls.Add(this.labelFileList);
             this.Controls.Add(this.buttonGo);
@@ -167,6 +160,8 @@
             this.Controls.Add(this.listBoxFiles);
             this.Controls.Add(this.menuStripBrowser);
             this.MainMenuStrip = this.menuStripBrowser;
+            this.MaximumSize = new System.Drawing.Size(448, 416);
+            this.MinimumSize = new System.Drawing.Size(448, 416);
             this.Name = "Form1";
             this.Text = "Movies Folder";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -185,7 +180,6 @@
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Label labelFileList;
         private System.Windows.Forms.CheckBox checkBoxWatched;
-        private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.MenuStrip menuStripBrowser;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem browseToolStripMenuItem;
