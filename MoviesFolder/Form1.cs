@@ -37,6 +37,10 @@ namespace MoviesFolder
             // An if statement that checks if the listbox actually contains entries or not
             if (lb.Items.Count != 0) {
                 string key = lb.Items[e.Index].ToString(); // (Needed to simplify my code)
+                // If statement that acts as a "cursor"
+                if(lb.GetSelected(e.Index)) {
+                    g.DrawRectangle(new Pen(Color.Black), e.Bounds);
+                }
                 // If statement that sets the draw color based on the watched state
                 if (watched[key] == true) {
                     g.FillRectangle(new SolidBrush(Color.LightGreen), e.Bounds);
@@ -108,6 +112,8 @@ namespace MoviesFolder
                 watched.Add(currItem, false);
                 checkBoxWatched.Checked = false;
             }
+            // Automatically refreshes the selected item in the listbox
+            listBoxFiles.Invalidate(listBoxFiles.GetItemRectangle(listBoxFiles.SelectedIndex));
         }
 
         /// <summary>
@@ -117,6 +123,8 @@ namespace MoviesFolder
         /// <param name="e"></param>
         private void checkBoxWatched_CheckedChanged(object sender, EventArgs e) {
             watched[currItem] = checkBoxWatched.Checked;
+            // Automatically refreshes the selected item in the listbox
+            listBoxFiles.Invalidate(listBoxFiles.GetItemRectangle(listBoxFiles.SelectedIndex));
         }
 
         /// <summary>
