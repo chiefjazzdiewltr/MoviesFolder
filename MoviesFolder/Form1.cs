@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
 
 namespace MoviesFolder
 {
@@ -9,7 +10,7 @@ namespace MoviesFolder
     {
         private Dictionary<string, bool> watched = new Dictionary<string, bool>(); // The main dictionary that stores the movie's watched state
         private string currItem; // This variable just represents the currently selected item
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -17,11 +18,39 @@ namespace MoviesFolder
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            listBoxFiles.DrawItem += ListBoxFiles_DrawItem;
         }
-        
+
         /// <summary>
-        /// Go Button that will grab all of the Files and Folders in a given directory and add them to the display
+        /// A custom implementation of the ListBox's Draw Item event handler, 
+        /// this is needed to do the green/white distinction for each list box
+        /// entry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListBoxFiles_DrawItem(object sender, DrawItemEventArgs e) {
+            // Initial variables needed to setup the program
+            e.DrawBackground();
+            Graphics g = e.Graphics;
+            ListBox lb = (ListBox)sender;
+
+            // An if statement that checks if the listbox actually contains entries or not
+            if (lb.Items.Count != 0) {
+                string key = lb.Items[e.Index].ToString(); // (Needed to simplify my code)
+                // If statement that sets the draw color based on the watched state
+                if (watched[key] == true) {
+                    g.FillRectangle(new SolidBrush(Color.LightGreen), e.Bounds);
+                } else {
+                    g.FillRectangle(new SolidBrush(Color.IndianRed), e.Bounds);
+                }
+                // Drawing the actual string itself into the row
+                g.DrawString(key, e.Font, new SolidBrush(Color.Black), new PointF(e.Bounds.X, e.Bounds.Y));
+            }
+        }
+
+        /// <summary>
+        /// Go Button that will grab all of the Files and Folders in a 
+        /// given directory and add them to the display
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -36,8 +65,14 @@ namespace MoviesFolder
             foreach(string folder in folders) {
                 string[] tempFiles = Directory.GetFiles(folder);
                 foreach(string tmpFile in tempFiles) {
-                    watched.Add(tmpFile, false);
                     string newFile = tmpFile.Replace(folder + "\\", ""); // A filter that gets rid of unnecessary garbage
+                    // A bit of a redundant if statement, but it checks if the file already exists
+                    // and doesn't add it if it does
+                    if(watched.ContainsKey(newFile)) {
+                        Console.WriteLine("File Already Exists");
+                    } else {
+                        watched.Add(newFile, false);
+                    }
                     listBoxFiles.Items.Add(newFile);
                    
                 }
@@ -45,8 +80,14 @@ namespace MoviesFolder
 
             // A foreach loop that gets all the files in the given directory and displays them
             foreach(string file in files) {
-                watched.Add(file, false);
                 string newFile = file.Replace(dir + "\\", ""); // Same filter as nested foreach loop
+                // A bit of a redundant if statement, but it checks if the file already exists
+                // and doesn't add it if it does
+                if (watched.ContainsKey(newFile)) {
+                    Console.WriteLine("File Already Exists");
+                } else {
+                    watched.Add(newFile, false);
+                }
                 listBoxFiles.Items.Add(newFile); 
             }
         }
@@ -60,7 +101,6 @@ namespace MoviesFolder
             // These variables just change and get the currently selected item
             string listItem = listBoxFiles.SelectedItem.ToString();
             currItem = listItem;
-
             // This if and else checks if the current item is in the dictionary and adds it, if it isn't
             if (watched.ContainsKey(currItem)) {
                 checkBoxWatched.Checked = watched[currItem];
@@ -89,16 +129,16 @@ namespace MoviesFolder
             if(openFile.ShowDialog() == DialogResult.OK) {
                 try {
                     // Creates a reader that reads from the csv file and adds all entries to the display
-                    StreamReader reader = new StreamReader(openFile.FileName); 
-                    while(!reader.EndOfStream) {
+                    StreamReader reader = new StreamReader(openFile.FileName);
+                    while (!reader.EndOfStream) {
                         string line = reader.ReadLine();
                         string[] values = line.Split(',');
                         listBoxFiles.Items.Add(values[0]);
                         watched.Add(values[0], Boolean.Parse(values[1]));
-                        
+
                     }
                     reader.Close();
-                } 
+                }
                 // A bit of error checking
                 catch {
                     Console.Error.WriteLine("Incorrect File Path");
@@ -112,7 +152,7 @@ namespace MoviesFolder
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(saveFile.ShowDialog() == DialogResult.OK) {
+            if (saveFile.ShowDialog() == DialogResult.OK) {
                 // Checks if the saved name is not blank (this would never trip but just in case)
                 if(saveFile.FileName != "") {
                     // Runs through each entry in the dictionary and adds it to a csv files then saves it

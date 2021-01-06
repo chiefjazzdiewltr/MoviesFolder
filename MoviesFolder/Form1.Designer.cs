@@ -48,6 +48,7 @@
             // 
             this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxFiles.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(15, 99);
             this.listBoxFiles.Name = "listBoxFiles";
