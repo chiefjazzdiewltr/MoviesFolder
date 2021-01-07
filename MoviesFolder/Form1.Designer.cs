@@ -147,6 +147,7 @@
             // saveFile
             // 
             this.saveFile.DefaultExt = "csv";
+            this.saveFile.Filter = "Comma Seperated Values|*.csv|All Files|*.*";
             // 
             // Form1
             // 

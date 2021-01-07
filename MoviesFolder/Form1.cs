@@ -60,6 +60,8 @@ namespace MoviesFolder
         /// <param name="e"></param>
         private void buttonGo_Click(object sender, EventArgs e)
         {
+            listBoxFiles.Items.Clear();
+            watched.Clear();
             // Bunch of variables for storing the files and folders
             string dir = textBoxFolder.Text;
             string[] files = Directory.GetFiles(dir);
@@ -134,7 +136,8 @@ namespace MoviesFolder
         /// <param name="e"></param>
         private void browseToolStripMenuItem_Click(object sender, EventArgs e) {
             listBoxFiles.Items.Clear(); // Just as a precaution it clears the existing display
-            if(openFile.ShowDialog() == DialogResult.OK) {
+            watched.Clear();
+            if (openFile.ShowDialog() == DialogResult.OK) {
                 try {
                     // Creates a reader that reads from the csv file and adds all entries to the display
                     StreamReader reader = new StreamReader(openFile.FileName);
