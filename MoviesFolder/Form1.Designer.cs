@@ -41,6 +41,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.menuStripBrowser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +51,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxFiles.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBoxFiles.FormattingEnabled = true;
-            this.listBoxFiles.Location = new System.Drawing.Point(15, 99);
+            this.listBoxFiles.Location = new System.Drawing.Point(15, 76);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(329, 264);
+            this.listBoxFiles.Size = new System.Drawing.Size(329, 277);
             this.listBoxFiles.TabIndex = 1;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
@@ -60,10 +61,11 @@
             // 
             this.textBoxFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxFolder.Location = new System.Drawing.Point(87, 46);
+            this.textBoxFolder.Location = new System.Drawing.Point(87, 32);
             this.textBoxFolder.Name = "textBoxFolder";
             this.textBoxFolder.Size = new System.Drawing.Size(118, 20);
             this.textBoxFolder.TabIndex = 2;
+            this.textBoxFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFolder_KeyPress);
             // 
             // folderDirectory
             // 
@@ -71,7 +73,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.folderDirectory.AutoSize = true;
-            this.folderDirectory.Location = new System.Drawing.Point(12, 49);
+            this.folderDirectory.Location = new System.Drawing.Point(12, 35);
             this.folderDirectory.Name = "folderDirectory";
             this.folderDirectory.Size = new System.Drawing.Size(69, 13);
             this.folderDirectory.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(211, 46);
+            this.buttonGo.Location = new System.Drawing.Point(211, 31);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(39, 20);
             this.buttonGo.TabIndex = 4;
@@ -90,7 +92,7 @@
             // labelFileList
             // 
             this.labelFileList.AutoSize = true;
-            this.labelFileList.Location = new System.Drawing.Point(12, 83);
+            this.labelFileList.Location = new System.Drawing.Point(12, 60);
             this.labelFileList.Name = "labelFileList";
             this.labelFileList.Size = new System.Drawing.Size(42, 13);
             this.labelFileList.TabIndex = 6;
@@ -99,7 +101,7 @@
             // checkBoxWatched
             // 
             this.checkBoxWatched.AutoSize = true;
-            this.checkBoxWatched.Location = new System.Drawing.Point(350, 99);
+            this.checkBoxWatched.Location = new System.Drawing.Point(350, 76);
             this.checkBoxWatched.Name = "checkBoxWatched";
             this.checkBoxWatched.Size = new System.Drawing.Size(70, 17);
             this.checkBoxWatched.TabIndex = 8;
@@ -113,7 +115,7 @@
             this.fileToolStripMenuItem});
             this.menuStripBrowser.Location = new System.Drawing.Point(0, 0);
             this.menuStripBrowser.Name = "menuStripBrowser";
-            this.menuStripBrowser.Size = new System.Drawing.Size(432, 24);
+            this.menuStripBrowser.Size = new System.Drawing.Size(424, 24);
             this.menuStripBrowser.TabIndex = 11;
             this.menuStripBrowser.Text = "menuStrip1";
             // 
@@ -149,11 +151,22 @@
             this.saveFile.DefaultExt = "csv";
             this.saveFile.Filter = "Comma Seperated Values|*.csv|All Files|*.*";
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(256, 31);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(43, 20);
+            this.buttonClear.TabIndex = 12;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 377);
+            this.ClientSize = new System.Drawing.Size(424, 366);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.checkBoxWatched);
             this.Controls.Add(this.labelFileList);
             this.Controls.Add(this.buttonGo);
@@ -162,8 +175,8 @@
             this.Controls.Add(this.listBoxFiles);
             this.Controls.Add(this.menuStripBrowser);
             this.MainMenuStrip = this.menuStripBrowser;
-            this.MaximumSize = new System.Drawing.Size(448, 416);
-            this.MinimumSize = new System.Drawing.Size(448, 416);
+            this.MaximumSize = new System.Drawing.Size(440, 405);
+            this.MinimumSize = new System.Drawing.Size(440, 405);
             this.Name = "Form1";
             this.Text = "Movies Folder";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -188,6 +201,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
