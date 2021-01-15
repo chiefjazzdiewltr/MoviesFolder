@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
+using System.Runtime.InteropServices;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MoviesFolder {
     public partial class Form1 : Form {
         private Dictionary<string, bool> watched = new Dictionary<string, bool>(); // The main dictionary that stores the movie's watched state
         private string currItem; // This variable just represents the currently selected item
-
         public Form1() {
             InitializeComponent();
         }
@@ -141,7 +142,6 @@ namespace MoviesFolder {
                         string[] values = line.Split(',');
                         listBoxFiles.Items.Add(values[0]);
                         watched.Add(values[0], Boolean.Parse(values[1]));
-
                     }
                     reader.Close();
                 }

@@ -42,6 +42,9 @@
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStripBrowser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFolder.Location = new System.Drawing.Point(87, 32);
             this.textBoxFolder.Name = "textBoxFolder";
-            this.textBoxFolder.Size = new System.Drawing.Size(118, 20);
+            this.textBoxFolder.Size = new System.Drawing.Size(133, 20);
             this.textBoxFolder.TabIndex = 2;
             this.textBoxFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFolder_KeyPress);
             // 
@@ -81,7 +84,7 @@
             // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(211, 31);
+            this.buttonGo.Location = new System.Drawing.Point(226, 32);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(39, 20);
             this.buttonGo.TabIndex = 4;
@@ -115,7 +118,7 @@
             this.fileToolStripMenuItem});
             this.menuStripBrowser.Location = new System.Drawing.Point(0, 0);
             this.menuStripBrowser.Name = "menuStripBrowser";
-            this.menuStripBrowser.Size = new System.Drawing.Size(424, 24);
+            this.menuStripBrowser.Size = new System.Drawing.Size(439, 24);
             this.menuStripBrowser.TabIndex = 11;
             this.menuStripBrowser.Text = "menuStrip1";
             // 
@@ -149,11 +152,11 @@
             // saveFile
             // 
             this.saveFile.DefaultExt = "csv";
-            this.saveFile.Filter = "Comma Seperated Values|*.csv|All Files|*.*";
+            this.saveFile.Filter = "Comma Seperated Values|*.csv|Excel Spreadsheet|*.xlsx|All Files|*.*";
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(256, 31);
+            this.buttonClear.Location = new System.Drawing.Point(271, 32);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(43, 20);
             this.buttonClear.TabIndex = 12;
@@ -161,11 +164,41 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(347, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "G = Watched";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(347, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Key:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "R = Not Watched";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 366);
+            this.ClientSize = new System.Drawing.Size(439, 366);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.checkBoxWatched);
             this.Controls.Add(this.labelFileList);
@@ -175,8 +208,8 @@
             this.Controls.Add(this.listBoxFiles);
             this.Controls.Add(this.menuStripBrowser);
             this.MainMenuStrip = this.menuStripBrowser;
-            this.MaximumSize = new System.Drawing.Size(440, 405);
-            this.MinimumSize = new System.Drawing.Size(440, 405);
+            this.MaximumSize = new System.Drawing.Size(455, 405);
+            this.MinimumSize = new System.Drawing.Size(455, 405);
             this.Name = "Form1";
             this.Text = "Movies Folder";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -202,6 +235,9 @@
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.SaveFileDialog saveFile;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
